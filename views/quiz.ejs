@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Choice Game</title>
+    <link rel="stylesheet" href="stylesheets/dashboard.css">
+    <link rel="stylesheet" href="stylesheets/animationBackground.css">
+    <link rel="stylesheet" href="stylesheets/user-container.css">
+</head>
+<body>
+    <!-- for animation -->
+    <div class="user-info">
+      <h4>Welcome, <%= user_name %>!</h4>
+      <button onclick="location.href='/logout';">Logout</button>
+      <button onclick="location.href='/profile';">Profile</button>
+  </div>
+    <div class="animation-container">
+        
+        <!--animation bubbles-->
+        <div class = "bubbles">
+          <!-- BALLS ARE BEING INSERTED VIA BALLS.js HERE -->
+        </div>      
+        <!-- for game -->
+    <div class="game-container">
+        <div class="leaderboard-container" id="leaderboard-container" style="display: none;">
+            <h3>Leaderboard</h3>
+            <ol id="leaderboard-list"></ol>
+        </div>
+        <div class="content" id="quiz-container" >
+            
+            <div class="score-box" id="score-box">Score: 0</div>
+            <div class="question" id="question">Loading question...</div>
+            <div class="choices" id="choices"></div>
+            <div class="result" id="result" ></div>
+            <button class="next-button" id="next" onclick="nextQuestion()">Next Question</button>
+            <div class="restart-box" id="restart"  onclick="location.reload()">Restart</div>
+        </div>
+        <div class="tracker-box" id="tracker-box" ></div>
+    </div>
+      
+    </div>
+</body>
+
+                                <!-- JAVA SCRIPT AREA -->
+
+<script>
+    let score = 0; // Initialize score
+    const scoreBox = document.getElementById('score-box');
+    const questionElement = document.getElementById('question');
+    const choicesElement = document.getElementById('choices');
+    const resultElement = document.getElementById('result');
+    const nextButton = document.getElementById('next');
+    const trackerBox = document.getElementById('tracker-box');
+    let scoreCounter = 0;
+    let choosen = false;
+    let questionData;  
+    let response;
+    let data;
+    let isAnswered = false;
+    let maxQuestions = 10;    
+    let currentQuestionIndex = 0;
+    let questionCount = 0;
+    let current_user_name  = '<%= user_name %>';
+
+    async function loadQuestion() {
+        resultElement.textContent = '';
+        nextButton.style.display = 'none';
+        choicesElement.innerHTML = '';
+        resetScore();
+            
+        try {
+            const apiUrl = `https://opentdb.com/api.php?amount=10&category=18&difficulty=hard&type=multiple`;
+            const response = await fetch(apiUrl);
+            data = await response.json();
+            // console.log(data.results[currentQuestionIndex]);
+            questionData = data.results[currentQuestionIndex];
+            questionElement.textContent = `[ Question ${currentQuestionIndex+1}] ${questionData.question}`;
+            
+            createChoice(questionData);
+        
+            currentQuestionIndex++;
+        } catch (error) {
+            questionElement.textContent = 'Error loading question. Please try again.';
+            console.log(error);
+        }
+    }
+    function nextQuestion() {
+        if (currentQuestionIndex >= maxQuestions) {
+            endGame();
+            // Reset the score on the server
+                
+        } else {
+            questionCount++;
+            loadNextQuestion();
+        }
+    }
+
+        function loadNextQuestion() {
+            isAnswered = false;
+            // console.log(data.results[currentQuestionIndex]); 
+            resultElement.textContent = '';
+            nextButton.style.display = 'none';
+            choicesElement.innerHTML = '';
+            questionData = data.results[currentQuestionIndex];
+            questionElement.textContent = "[ Question " + currentQuestionIndex  +  " ] " +  questionData.question;
+            createChoice(questionData);
+            currentQuestionIndex++;    
+        }
+
+        function createChoice( questionData){
+            let correctAnswer = questionData.correct_answer;
+            let incorrect_answers = questionData.incorrect_answers;
+            let optionsList  = incorrect_answers;
+            optionsList.splice(Math.floor(Math.random()*(incorrect_answers.length +1)), 0 , correctAnswer);
+            // console.log(optionsList);
+            
+            optionsList.forEach(element => {
+                const button = document.createElement('button');
+                button.className = 'choice';
+                button.textContent = element;
+                button.onclick = () => checkAnswer(element, correctAnswer);
+                choicesElement.appendChild(button);
+            });
+            
+        };
+
+        async function checkAnswer(element, correctAnswer) {
+            
+            if (isAnswered) return; // Prevent multiple answers
+            isAnswered = true; // Mark the question as answered
+
+            // Disable all buttons
+            const allButtons = document.querySelectorAll('.choice');
+            allButtons.forEach((btn) => btn.classList.add('disabled'));
+            var isCorrect = element === correctAnswer;
+
+            // Update tracker with green or red circle
+            const circle = document.createElement('div');
+            circle.classList.add('circle', element === correctAnswer ? 'correct' : 'wrong');
+            trackerBox.appendChild(circle);
+            
+            //updateScore
+            try {
+                const response = await fetch('/updateScore', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:  JSON.stringify({booleanVar :isCorrect }) ,
+                });
+            }catch (error) {
+                alert('Error Updating Score. Please try again.');
+            }
+            
+            //fetchScore
+            try{   
+                const response = await fetch('/score');
+                const result = await response.json();
+                console.log(result.score);
+                scoreBox.textContent = `Score: ${result.score}`;
+            }catch(error){
+                alert('Error Fetching Score. Please try again.');
+            }
+            
+            nextQuestion();
+            
+        }
+
+        function endGame() {
+            
+                // Display game over message
+                questionElement.textContent = "Game Over! Thank you for playing.";
+                choicesElement.innerHTML = '';
+                resultElement.textContent = `Your final score is ${scoreBox.textContent.split(': ')[1]}! 🎉`;
+                nextButton.style.display = 'none';
+                // scoreBox.style.display = 'none';
+
+                // Display name submission form
+                const submitContainer = document.createElement('div');
+                submitContainer.className = 'submit-container';
+
+                const nameInput = document.createElement('input');
+                nameInput.type = 'button';
+
+                const submitButton = document.createElement('button');
+                submitButton.type = 'button';
+                submitButton.textContent = 'Submit Score';
+                submitButton.onclick = function () {
+                    submitScore('<%= user_name %>');
+                    trackerBox.style.display = 'none';
+                    submitContainer.style.display = 'none';
+                
+                }
+
+                submitContainer.appendChild(nameInput);
+                submitContainer.appendChild(submitButton);
+
+                resultElement.appendChild(submitContainer);
+
+                // Show leaderboard
+                fetchLeaderboard();
+                
+        }
+
+        async function submitScore(name) {
+
+            try {
+                const response = await fetch('/leaderboard', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name }),
+                });
+
+                const result = await response.json();
+
+                // Refresh leaderboard
+                fetchLeaderboard();
+                const submitContainer = document.getElementsByClassName('submit-container');
+                // submitContainer.style.display('none');
+            } catch (error) {
+                alert('Error submitting score. Please try again.');
+            }
+
+            
+
+
+        }
+
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch('/leaderboard');
+                const leaderboard = await response.json();
+
+                const leaderboardContainer = document.getElementById('leaderboard-container');
+                const leaderboardList = document.getElementById('leaderboard-list');
+                leaderboardList.innerHTML = '';
+
+                leaderboard.forEach((entry) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${entry.name} - ${entry.score}`;
+                    leaderboardList.appendChild(listItem);
+                });
+
+                leaderboardContainer.style.display = 'block';
+            } catch (error) {
+                console.error('Error fetching leaderboard:', error);
+            }
+        }
+
+        async function resetScore() {
+            try {
+                // Reset the score on the server
+                await fetch('/reset', { method: 'POST' });
+
+            } catch (error) {
+                resultElement.textContent = 'Error resetting score. Please try again.';
+                resultElement.style.color = 'red';
+            }
+        }
+
+        
+
+
+        // Load the first question
+        loadQuestion();
+</script>
+
+<script  src="javascripts/balls.js"></script>
+
+</html>
