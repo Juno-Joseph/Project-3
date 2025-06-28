@@ -24,7 +24,7 @@ var app = express();
 //Session 
 // Configure session middleware
 app.use(session({
-  secret: 'GodHatesMe1234',
+  secret: 'ihatequizzes',
   resave: false,
   saveUninitialized: true
 }));
