@@ -7,10 +7,9 @@ var logger = require('morgan');
 require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
-// const { connectToDB } = require('./models/db');
-// const User  = require('./models/User');
+
 const dbURL = process.env.ATLAS_URI;
-const port = 5000;
+const port = 2000;
 
 //routers
 var indexRouter = require('./routes/index');
