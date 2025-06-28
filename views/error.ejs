@@ -1,3 +1,18 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error <%= error.status %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/error.css">
+
+</head>
+<body>
+  <div class="error-container">
+    <h1>Oops! <%= message %></h1>
+    <h2>Error <%= error.status %></h2>
+    <% if (error.stack) { %>
+      <pre><%= error.stack %></pre>
+    <% } %>
+    <a href="/">Return to Home</a>
+  </div>
