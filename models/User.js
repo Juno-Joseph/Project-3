@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Define the User schema
+// This schema defines the structure of the User documents in the MongoDB collection
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
@@ -12,7 +14,6 @@ const userSchema = new mongoose.Schema({
     ],
 });
 
-// Add a unique index to enforce email uniqueness at the database level
-// userSchema.index({ email: 1 }, { unique: true });
+// Middleware to hash password before saving
 
 module.exports = mongoose.model("User", userSchema);
