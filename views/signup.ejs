@@ -3,40 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="stylesheets/signup.css">
         <title>Sign Up</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/signup.css">
     </head>
     <body>
-       <div class="header">
-        <h1 id="typing-header"></h1>
-       </div> 
-            <div class="container">
-                <form method="POST" action="/signup/submit" class="signup_form">
-                    <div class="form_header">
-                        <h1>Sign up</h1>
-                        <p style="background-color: black; color: white; padding: 8px; border-radius: 4px;">
-                            Already have an account? <a href="/signin" style="color: white;">SIGN IN</a>
-                        </p>
-                    </div>
-                    <label for="name">Name</label>
-                    <input id="name" type="text" name="name">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password">
-                    <div class="checkbox">
-                        <input type="checkbox" >
-                        <p><span>I do not want to receive emails with advertising, news, suggestions or marketing promotions</span></p>
-                    </div>
-                    <input type="submit" value="Sign up" style="font-size: 1.5em;">
-                    <p class="footnote">
-                        By signing up to create an account, 
-                        you are accepting out terms of services and privacy policy
+        <div class="floating-particles"></div>
+        
+        
+        <div class="container">
+            <form method="POST" action="/signup/submit" class="signup_form">
+                <div class="form_header">
+                    <h1>Sign up</h1>
+                    <p>
+                        Already have an account? <a href="/signin">SIGN IN</a>
                     </p>
-                </form>         
-            </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="Enter your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="Create a secure password">
+                </div>
+    
+                <input type="submit" value="Sign up">
+                
+            </form>         
+        </div>
         
-        
-         <script  src="javascripts/typing-script.js"></script>
+        <script src="javascripts/typing-script.js"></script>
     </body>
 </html>
