@@ -1,103 +1,138 @@
 body {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #290038, #480055);
-      color: #f1f7ee;
-      font-family: 'Orbitron', sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ffffff;
 }
 
 .game-container {
     z-index: 3;
-    background-color: #D3D3D3;
-    width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 450px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     text-align: center;
+    position: relative;
+    color: #ffffff;
+}
+
+.game-container::before {
+    content: '';
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+    border-radius: 20px;
+    z-index: -1;
 }
 
 .score-box {
     position: absolute;
-    color: rgb(194, 22, 22);
-    top: -50px;
-    left: 25%;
-    transform: translateX(-50%);
-    background-color: #ffcc00;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1.2em;
+    color: #ffffff;
+    top: -25px;
+    left: 20px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1.1em;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .restart-box {
     position: absolute;
-    top: -50px;
-    right: 0%;
-    transform: translateX(-50%);
-    background-color: #15ff00;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1.2em;
+    top: -25px;
+    right: 20px;
+    background: linear-gradient(135deg, #00d2d3, #54a0ff);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1.1em;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(84, 160, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restart-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(84, 160, 255, 0.6);
 }
 
 .question {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #ffffff;
 }
 
 .choices {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .choice {
-    background-color: #e0e0e0;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    font-weight: 500;
 }
 
 .choice:hover {
-    background-color: #d0d0d0;
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .choice:active {
-    background-color: #c0c0c0;
+    transform: translateY(0px);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .result {
-    margin-top: 20px;
-    font-size: 1.1em;
-    color: #333333;
+    margin-top: 25px;
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 500;
 }
 
 .next-button {
-    margin-top: 20px;
+    margin-top: 25px;
     display: none;
-    padding: 10px 20px;
-    background-color: #4caf50;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #10ac84, #1dd1a1);
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(16, 172, 132, 0.4);
 }
 
 .next-button:hover {
-    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(16, 172, 132, 0.6);
 }
 
 .tracker-box {
@@ -110,83 +145,91 @@ body {
 }
 
 .tracker-box .circle {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    margin: 0 10px;
+    margin: 0 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .tracker-box .circle.correct {
-    background-color: green;
+    background: linear-gradient(135deg, #00d2d3, #1dd1a1);
 }
 
 .tracker-box .circle.wrong {
-    background-color: red;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
 }
+
 .start-button {
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1.2em;
+    margin-top: 30px;
+    padding: 18px 40px;
+    font-size: 1.3em;
     font-weight: bold;
     color: #fff;
-    background-color: #4caf50;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     border: none;
     border-radius: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
     cursor: pointer;
     transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .start-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.6);
 }
 
-/* THIS IS LEADER BORD CSS  */
-
+/* LEADERBOARD SECTION */
 .leaderboard-container {
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .leaderboard-container h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.leaderboard-container ol {
-    padding-left: 20px;
-    font-size: 1em;
-}
-
-.leaderboard-container ol li {
-    margin-bottom: 5px;
-}
-
-.submit-container {
-    margin-top: 20px;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #ffffff;
     text-align: center;
 }
 
-/* .submit-container input {
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-} */
+.leaderboard-container ol {
+    padding-left: 25px;
+    font-size: 1.1em;
+    color: #ffffff;
+}
+
+.leaderboard-container ol li {
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.submit-container {
+    margin-top: 25px;
+    text-align: center;
+}
 
 .submit-container button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #4caf50;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
     color: #fff;
-    border-radius: 5px;
+    border: none;
+    border-radius: 20px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
 }
 
 .submit-container button:hover {
-    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 107, 107, 0.6);
 }
 
 table {
@@ -194,11 +237,19 @@ table {
     border-collapse: collapse;
     margin: 20px 0;
     text-align: center;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
+    color: #ffffff;
+}
+
+table th {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
 }
