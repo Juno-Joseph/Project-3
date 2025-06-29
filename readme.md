@@ -41,8 +41,6 @@ Implement authentication, session management, and security (e.g., password hashi
 Handle database operations (CRUD) with MongoDB.
 Manage business logic for quizzes, scoring, and leaderboard.
 Design MongoDB schemas for users, quizzes, and leaderboard.
-Ensure data integrity and optimize queries.
-Manage database backups and migrations.
 
 ## Juno Joseph
 Design and implement user interfaces (UI) using HTML, CSS, and JavaScript.
@@ -53,4 +51,8 @@ Write and execute test cases for all features.
 Identify and report bugs or usability issues
 Deployed the server in the cloud service
 
-## 
+## Akash Ramkaran
+Ensure data integrity and optimize queries.
+Manage database backups and migrations.
+
+
