@@ -37,9 +37,6 @@ const filePath = path.join(__dirname, "../data/leaderboard.json");
 fs.writeFileSync(filePath, JSON.stringify(leaderboard, null, 2), "utf-8");
 };
 
-// In-memory score storage and Leader board(reset when server restarts)
-let score = 0;
-const leaderboard = [];
 
 // Route to update score counter
 router.post("/updateScore", (req, res) => {

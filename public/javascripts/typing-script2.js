@@ -1,4 +1,4 @@
-    const text = "This is your player profile!";
+    const text = "WELCOME TO YOUR PLAYER PROFILE!";
     const typingSpeed = 100;
     let i = 0;
     const header = document.getElementById("typing-header");
