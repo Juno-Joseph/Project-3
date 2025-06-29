@@ -36,23 +36,34 @@ Check your profile and play history at /profile.
 CREDITS:
 
 ## Mret Hein 
-Design and develop RESTful APIs using Node.js and Express.
-Implement authentication, session management, and security (e.g., password hashing).
-Handle database operations (CRUD) with MongoDB.
-Manage business logic for quizzes, scoring, and leaderboard.
-Design MongoDB schemas for users, quizzes, and leaderboard.
+Design the main/profile quiz page
+Manage general logic for quizzes, scoring, and leaderboard.
+Handle database operations (CRUD) with MongoDB
+Fetching user data from MongoDB to display it
+Implement fetching of random questions from Open Trivia DB API 
+Sends answers to the backend to check correctness and update the score.
+Post request to updateScore
+
 
 ## Juno Joseph
-Design and implement user interfaces (UI) using HTML, CSS, and JavaScript.
+Design the sign-in/sign-up pages
+Implement user authentification (right or wrong username/password)
+User session management
+Password hashing
 Ensure responsive and accessible layouts.
-Integrate frontend with backend APIs (e.g., for quiz questions, scores, leaderboard).
-Implement client-side validation and user experience enhancements.
-Write and execute test cases for all features.
-Identify and report bugs or usability issues
+Implement middleware to ensure only logged-in users can access quiz and profile routes 
 Deployed the server in the cloud service
 
 ## Akash Ramkaran
-Ensure data integrity and optimize queries.
-Manage database backups and migrations.
+Design the results page
+Design MongoDB schemas for users, quizzes, and leaderboard.
+View and Updating Leaderboard
+Create and implement the routes
+Implement middleware to ensure only logged-in users can access quiz and profile routes 
+Integrate frontend with backend APIs (e.g., for quiz questions, scores, leaderboard).
+
+
+
+
 
 
