@@ -12,6 +12,7 @@ A full-stack web application for playing multiple-choice quizzes, tracking score
 - Responsive and modern UI
 
 
+
 ## Setup
 
 1. **Clone the repository**
