@@ -51,3 +51,6 @@ Integrate frontend with backend APIs (e.g., for quiz questions, scores, leaderbo
 Implement client-side validation and user experience enhancements.
 Write and execute test cases for all features.
 Identify and report bugs or usability issues
+Deployed the server in the cloud service
+
+## 
