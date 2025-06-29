@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', checkLoggedIn , function(req, res, next) {
   // Access session data
   res.locals.user_name = req.session.user;
-  res.render("dashboard", {user_name: res.locals.user_name} );
+  res.render("panel", {user_name: res.locals.user_name} );
   
 });
 
