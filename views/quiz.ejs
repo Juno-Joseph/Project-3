@@ -67,7 +67,7 @@
         resetScore();
             
         try {
-            const apiUrl = `https://opentdb.com/api.php?amount=10&category=18&difficulty=hard&type=multiple`;
+            const apiUrl = `https://opentdb.com/api.php?amount=10`;
             const response = await fetch(apiUrl);
             data = await response.json();
             // console.log(data.results[currentQuestionIndex]);
