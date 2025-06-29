@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const fs = require("fs");
 const path = require("path");
-//const  User  = require('../models/user');
+const  User  = require('../models/User');
 const mongoose = require("mongoose");
 const session = require('express-session');
 
