@@ -1,203 +1,150 @@
-body {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #290038, #480055);
-      color: #f1f7ee;
-      font-family: 'Orbitron', sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
-}
-
-.game-container {
-    z-index: 3;
-    background-color: #D3D3D3;
-    width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+/* Modern user info container styles */
+.user-info {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     text-align: center;
-    position: absolute;
-}
-
-.score-box {
-    position: absolute;
-    color: rgb(194, 22, 22);
-    top: -50px;
-    left: 25%;
-    transform: translateX(-50%);
-    background-color: #ffcc00;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1.2em;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.restart-box {
-    position: absolute;
-    top: -50px;
-    right: 0%;
-    transform: translateX(-50%);
-    background-color: #15ff00;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1.2em;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.question {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.choices {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.choice {
-    background-color: #e0e0e0;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.choice:hover {
-    background-color: #d0d0d0;
-}
-
-.choice:active {
-    background-color: #c0c0c0;
-}
-
-.result {
-    margin-top: 20px;
-    font-size: 1.1em;
-    color: #333333;
-}
-
-.next-button {
-    margin-top: 20px;
-    display: none;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.next-button:hover {
-    background-color: #45a049;
-}
-
-.tracker-box {
-    flex: 0 0 80px;
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    margin-left: 20px;
-}
-
-.tracker-box .circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin: 0 10px;
-}
-
-.tracker-box .circle.correct {
-    background-color: green;
-}
-
-.tracker-box .circle.wrong {
-    background-color: red;
-}
-.start-button {
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #4caf50;
-    border: none;
-    border-radius: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    min-width: 180px;
     transition: all 0.3s ease;
 }
 
-.start-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
+.user-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* THIS IS LEADER BORD CSS  */
-
-.leaderboard-container {
-    margin-top: 20px;
-    text-align: left;
+.user-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(168, 85, 247, 0.15));
+    border-radius: 20px;
+    z-index: -1;
 }
 
-.leaderboard-container h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+.user-info p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.leaderboard-container ol {
-    padding-left: 20px;
-    font-size: 1em;
-}
-
-.leaderboard-container ol li {
+.user-info .username {
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 5px;
 }
 
-.submit-container {
-    margin-top: 20px;
-    text-align: center;
-}
-.submit-container input {
-    padding: 10px;
-    font-size: 1em;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-.submit-container button {
+.user-info button {
+    margin-top: 8px;
     padding: 10px 20px;
-    font-size: 1em;
-    background-color: #4caf50;
-    color: #fff;
-    border-radius: 5px;
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
+    color: white;
+    border: none;
+    border-radius: 15px;
     cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.submit-container button:hover {
-    background-color: #45a049;
+.user-info button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.7);
+    background: linear-gradient(135deg, #7C3AED, #9333EA);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    text-align: center;
+.user-info button:active {
+    transform: translateY(0px);
+}
+
+/* Additional styling for user stats */
+.user-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Profile picture placeholder */
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto 10px auto;
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .user-info {
+        top: 15px;
+        left: 15px;
+        padding: 12px 20px;
+        min-width: 150px;
+    }
+    
+    .user-info p {
+        font-size: 14px;
+    }
+    
+    .user-info .username {
+        font-size: 16px;
+    }
+    
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
 }
