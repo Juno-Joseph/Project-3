@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Player Profile</title>
     <link rel="stylesheet" href="stylesheets/dashboard.css">
-    <link rel="stylesheet" href="stylesheets/animationBackground.css">
     <link rel="stylesheet" href="stylesheets/user-container.css">
 </head>
 <body>
-     <!-- welcome box-->
+    <header>
+        <h2 id="typing-header"></h2>
+    </header>
+
+
     <div class="user-info">
         <h4>Hey, <%= user_name %>!</h4>
         <button onclick="location.href='/logout';">Logout</button>
@@ -17,8 +20,8 @@
     </div>
      
         <div class="game-container">
-            <h1>Hello! <%= user.name %>!</h1>
-            <p>Email: <%= user.email %></p>
+            <h1>Hello, <%= user.name %>!</h1>
+            <p>Login Email: <%= user.email %></p>
     
             <h2>Your Play History</h2>
             <% if (user.scores.length > 0) { %>
@@ -45,8 +48,6 @@
             <button style=" background-color: #5a67d8; color: white;" onclick="location.href='/';">Back To Quiz DashBoard</button>
         </div>      
     
-
-    <!-- ballsjs -->
-    <script  src="javascripts/balls.js"></script>
+    <script  src="javascripts/typing-script2.js"></script>
 </body>
 </html>

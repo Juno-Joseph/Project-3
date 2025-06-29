@@ -167,15 +167,14 @@ body {
     margin-top: 20px;
     text-align: center;
 }
-
-/* .submit-container input {
+.submit-container input {
     padding: 10px;
     font-size: 1em;
+    width: 200px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
-} */
-
+}
 .submit-container button {
     padding: 10px 20px;
     font-size: 1em;
