@@ -1,12 +1,13 @@
 /* Modern user info container styles */
 .user-info {
     position: absolute;
-    right: 20px;
-    top: 20px;   
-    background-color: #fffdfd;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    top: 25px;
+    left: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     text-align: center;
     align-items: center;
     z-index: 10;
@@ -29,16 +30,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(168, 85, 247, 0.15));
     border-radius: 20px;
     z-index: -1;
-}
-
-.user-info h4 {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
 }
 
 .user-info p {
@@ -52,7 +46,7 @@
 .user-info .username {
     font-size: 18px;
     font-weight: bold;
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -62,7 +56,7 @@
 .user-info button {
     margin-top: 8px;
     padding: 10px 20px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
     color: white;
     border: none;
     border-radius: 15px;
@@ -70,14 +64,14 @@
     font-size: 14px;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .user-info button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
-    background: linear-gradient(135deg, #5a67d8, #6b46c1);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.7);
+    background: linear-gradient(135deg, #7C3AED, #9333EA);
 }
 
 .user-info button:active {
@@ -119,7 +113,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,7 +121,7 @@
     font-weight: bold;
     color: white;
     margin: 0 auto 10px auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
 

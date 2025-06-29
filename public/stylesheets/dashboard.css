@@ -1,12 +1,13 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #290038 0%, #480055 100%);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     margin: 0;
     color: #ffffff;
+    padding-left: 5%;
 }
 
 .game-container {
@@ -30,7 +31,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.15), rgba(168, 85, 247, 0.15));
     border-radius: 20px;
     z-index: -1;
 }
@@ -40,12 +41,12 @@ body {
     color: #ffffff;
     top: -25px;
     left: 20px;
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    background: linear-gradient(135deg, #8B5CF6, #7C3AED);
     padding: 12px 24px;
     border-radius: 25px;
     font-size: 1.1em;
     font-weight: bold;
-    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -53,13 +54,13 @@ body {
     position: absolute;
     top: -25px;
     right: 20px;
-    background: linear-gradient(135deg, #00d2d3, #54a0ff);
+    background: linear-gradient(135deg, #A855F7, #C084FC);
     color: #ffffff;
     padding: 12px 24px;
     border-radius: 25px;
     font-size: 1.1em;
     font-weight: bold;
-    box-shadow: 0 8px 20px rgba(84, 160, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.5);
     border: 2px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -67,7 +68,7 @@ body {
 
 .restart-box:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(84, 160, 255, 0.6);
+    box-shadow: 0 12px 25px rgba(168, 85, 247, 0.7);
 }
 
 .question {
@@ -119,7 +120,7 @@ body {
     margin-top: 25px;
     display: none;
     padding: 15px 30px;
-    background: linear-gradient(135deg, #10ac84, #1dd1a1);
+    background: linear-gradient(135deg, #7C3AED, #8B5CF6);
     color: #ffffff;
     border: none;
     border-radius: 25px;
@@ -127,12 +128,12 @@ body {
     transition: all 0.3s ease;
     font-size: 1.1em;
     font-weight: bold;
-    box-shadow: 0 8px 20px rgba(16, 172, 132, 0.4);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.5);
 }
 
 .next-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(16, 172, 132, 0.6);
+    box-shadow: 0 12px 25px rgba(124, 58, 237, 0.7);
 }
 
 .tracker-box {
@@ -154,11 +155,11 @@ body {
 }
 
 .tracker-box .circle.correct {
-    background: linear-gradient(135deg, #00d2d3, #1dd1a1);
+    background: linear-gradient(135deg, #7C3AED, #8B5CF6);
 }
 
 .tracker-box .circle.wrong {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    background: linear-gradient(135deg, #EC4899, #F97316);
 }
 
 .start-button {
@@ -167,10 +168,10 @@ body {
     font-size: 1.3em;
     font-weight: bold;
     color: #fff;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
     border: none;
     border-radius: 30px;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -178,7 +179,7 @@ body {
 
 .start-button:hover {
     transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.7);
 }
 
 /* LEADERBOARD SECTION */
@@ -218,18 +219,18 @@ body {
 .submit-container button {
     padding: 12px 25px;
     font-size: 1.1em;
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    background: linear-gradient(135deg, #A855F7, #C084FC);
     color: #fff;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.5);
 }
 
 .submit-container button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(255, 107, 107, 0.6);
+    box-shadow: 0 12px 25px rgba(168, 85, 247, 0.7);
 }
 
 table {
