@@ -9,19 +9,15 @@
     <link rel="stylesheet" href="stylesheets/user-container.css">
 </head>
 <body>
-    <!-- for animation -->
+     <!-- welcome box-->
     <div class="user-info">
-        <h4>Welcome, <%= user_name %>!</h4>
+        <h4>Hey, <%= user_name %>!</h4>
         <button onclick="location.href='/logout';">Logout</button>
         <button onclick="location.href='/profile';">Profile</button>
     </div>
-    <div class="animation-container">
-
-        <div class = "bubbles">
-            <!-- BALLS ARE BEING INSERTED VIA BALLS.js HERE -->
-        </div>  
+     
         <div class="game-container">
-            <h1>Welcome, <%= user.name %>!</h1>
+            <h1>Hello! <%= user.name %>!</h1>
             <p>Email: <%= user.email %></p>
     
             <h2>Your Play History</h2>
@@ -48,7 +44,7 @@
     
             <button style=" background-color: #5a67d8; color: white;" onclick="location.href='/';">Back To Quiz DashBoard</button>
         </div>      
-    </div>
+    
 
     <!-- ballsjs -->
     <script  src="javascripts/balls.js"></script>
