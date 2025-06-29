@@ -1,22 +1,12 @@
 /* Modern user info container styles */
 .user-info {
     position: absolute;
-<<<<<<< Updated upstream
     right: 20px;
     top: 20px;   
     background-color: #fffdfd;
     padding: 10px 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-=======
-    top: 25px;
-    left: 25px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    padding: 15px 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
->>>>>>> Stashed changes
     text-align: center;
     align-items: center;
     z-index: 10;
